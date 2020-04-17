@@ -5,14 +5,13 @@ import json
 zone = 'us-central1-a'
 project_id = 'devopev' # Project ID, not Project Name
 
-# 建立字典对象service_account_info
+# dict service_account_info
 service_account_info = {
   "private_key_id": "78bb1bab70d74c87c2d7fa04e6714a20233***",
   "private_key": "******",
   "client_email":"service-accoun****@devopev.iam.gserviceaccount.com",
   "token_uri": "https://oauth2.googleapis.com/token",
 }
-
 
 credentials = service_account.Credentials.from_service_account_info(service_account_info)
 # Create the Cloud Compute Engine service object

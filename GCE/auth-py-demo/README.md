@@ -1,12 +1,12 @@
-# Python 认证
-## 环境配置
-gce-list-string-auth.py 环境
+# Python Google Cloud 认证
+## Run Code
+
+### gce-list-string-auth   
+环境配置
 ```
 pip3 install PyJWT
 pip3 install requests
 ```
-## Run Code
-gce-list-string-auth.py
 ```
 python3 gce-list-string-auth.py
 
@@ -23,7 +23,10 @@ costomize-hostname-dns
 firebase-host
 nginx-1
 ```
-gce-list-string-auth-v2.py
+----
+### gce-list-string-auth-v2.py   
+[函数参考doc](https://google-auth.readthedocs.io/en/latest/reference/google.oauth2.service_account.html)   
+[list all zone code](https://cloud.google.com/compute/docs/reference/rest/v1/zones/list#examples)
 ```
 python3 gce-list-string-auth-v2.py
 
