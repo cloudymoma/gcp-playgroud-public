@@ -1,5 +1,6 @@
 # Python 认证
 ## 环境配置
+gce-list-string-auth.py 环境
 ```
 pip3 install PyJWT
 pip3 install requests
