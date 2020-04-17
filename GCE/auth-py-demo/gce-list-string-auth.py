@@ -6,9 +6,9 @@ This program lists lists the Google Compute Engine Instances in one zone
 {
   "type": "service_account",
   "project_id": "devopev",
-  "private_key_id": "78bb1bab70d74c87c2d7fa04e6714a2023317757",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDqsSif2UMigPIj\nS9JqDm04FnV94yO4jrGKNXs1QixrlTl24zmwDJtILoR7LZCtSyuaPoPXA5cDzhF9\n58j14n6nqDpwHhrN89gJrejeZ9JpxYgQD4wcBIc0SsmLbxFw16SBAYfvdGkGS11x\n27iaGu0H9hvHg5ZRwunLW8vrAJkSXKCyV2o3iVesig1Te1pp3VFWXjqCK/VM+W4V\nbEij20li7qhiSG2qlfI/K99VLfs1qsJ8M2iZhuHTssa80Eg4/ocnIkI1lxrkxsZq\nvHf7/XzccRGBV3bCz8tErE60wfh9nzZC7bo12hd/un9kcr2GkKTYDFSYr+Uz1aV6\nVy78KZtbAgMBAAECggEABIFGEFtxSHZFL5xC+7ovKoZz1ujHRMGocsi4Bruwcpg4\ntCmEb/at/GK4NE0Zm9n3ikxs53GwMmiAOXR7jQy99aXrCT/qr81gdj8aWzqO9WzP\nQc+qltcXaU+OMtj88reQ9tD6tQP9CBvmPUtEbeDab+6vddL2zbb6Gec3MNmgFpQb\nL7+ssFDoCwd4ZAgxxMHkL5NmCaNYVJgpEc5KJWsqkIovVwsdAbqRZwSDSHP23J9U\ny6jJAeFz6Nq3fE8+tLux+gjsWBlXB2uV7ShrQoDFV0Xp2iz2RI4SlrxYlQz1bvUz\nppuKM+dNWU+m19WyqUtaTaKvxZCRNscPMXsHEYKQkQKBgQD7hTEDJxadnEXGIKis\nEuLIf6UTP02g0iyyeo+zS0fd+nDPQFaCY+jVwSnZd91XWaDKsmV0pPitZPJK4b6z\n3iULXRvikR4pO1tj2LzFW5ZKGmfeSxXc9Cghe0rmWumtxYv9kMvbkR0lPTa59dvk\nO+0TylzByL0zriAHkvOa2YFPfQKBgQDu3z0a9UMJCKIBS/AGdsshkgaPpeTZLCZX\nFX9kKLC6BKAPa4TViLIsCthyviEpPAzvcmLHDOGud/w+MMvG06U+Y0dqbF8S4XWx\nYEZuEFIQ9+k5tKqD7YRtyzmpL5xddTLX3qjTxJWes3SuVndowkrsbSDWurcdGjUD\nIsPswD09twKBgBvPGCIvGjMG6jgDuGJ+HBDq/Adqwlx7oHGDV4wNUL7cR8jCZk44\nWa/4kXX36MMVp8+BdfI1o0EYnillWD5u202sV77vKJSKeYpKlmSDwdQjo0RSrPIn\nFKDPDvL1Lk0GQHoinkeCfeR2JizdYBiV/5pmj2blmPWz1NrBhqmiTsfJAoGAJdgq\nZy36S+EZQZlVUsDZV905uuJuilWrUVqvjx+/OAlpjmfbaLU6fS3OswcaW90Os5Ts\nv1p0Gt8ZkITMlBiN8n9qHhtDSMt9iPeW0PM2/Uc5pRHRfgtQUtDCtuI7JLdfscGt\n/7cCeV03HDPIwUke86wqarq0LiEryu5kGgsu6KsCgYA58B4WC362Y5C7azqTYV/F\nsQBHgBxiYisj1lwtOb4n7VvSRASYhhnWLdvRhinboLtlEON23gH19z7MYa+lIaGp\nJWxc9eJnfjCwByNtNKGXqhM/xuDsq6B9Lyghlbb55F5hetN+KJqt+A7Y9fnmGEyh\nQMnDDbsQ49qaZfti6Wixwg==\n-----END PRIVATE KEY-----\n",
-  "client_email": "service-account-gcs@devopev.iam.gserviceaccount.com",
+  "private_key_id":
+  "private_key": "-
+  "client_email": 
   "client_id": "106820067785346742139",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://oauth2.googleapis.com/token",

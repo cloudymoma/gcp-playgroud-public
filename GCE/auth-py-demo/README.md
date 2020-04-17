@@ -5,6 +5,7 @@ pip3 install PyJWT
 pip3 install requests
 ```
 ## Run Code
+gce-list-string-auth.py
 ```
 python3 gce-list-string-auth.py
 
@@ -20,4 +21,13 @@ Compute instances in zone us-central1-a
 costomize-hostname-dns
 firebase-host
 nginx-1
+```
+gce-list-string-auth-v2.py
+```
+python3 gce-list-string-auth-v2.py
+
+costomize-hostname-dns
+firebase-host
+gke-private-same-vpc
+gke-privatecluster-test
 ```
