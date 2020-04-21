@@ -1,6 +1,10 @@
 
 
 # Nginx 配置L7 HTTP 代理
+## 需求
+user --> nginx proxy(80,443) -->负载均衡 upstream(s1 s2 ....)   
+
+---
 ## Mac 本地生成HTTPS 密钥
 ### 生成私钥key
 
