@@ -30,14 +30,7 @@ gcloud compute project-info add-metadata --metadata serial-port-enable=TRUE
 
 Console Metadata UI 添加Key Value
 
-
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/GCE-0.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/GCE-0.png "image_tooltip")
-
-
+![image](https://github.com/JunHash/gcp-playgroud-public/blob/master/pics/project-metadata.png)
 
 # 目标为单个实例
 
@@ -54,14 +47,7 @@ Console 启用串口
 
 编辑GCE Enable 串口
 
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/GCE-1.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/GCE-1.png "image_tooltip")
-
-
+![image](https://github.com/JunHash/gcp-playgroud-public/blob/master/pics/%E5%90%AF%E5%8A%A8%E4%B8%B2%E5%8F%A3.png)
 
 # 设置连接用户Password
 
@@ -110,17 +96,10 @@ Console UI 方式
 
 编辑并reset GCE
 
-
-# 
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/GCE-2.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+![image](https://github.com/JunHash/gcp-playgroud-public/blob/master/pics/%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC.png)
 
 
-![alt_text](images/GCE-2.png "image_tooltip")
-
-
-
-# 连接串口
+## 连接串口
 
 
 ## GCP Console 连接方式
