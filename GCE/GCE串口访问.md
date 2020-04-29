@@ -4,7 +4,7 @@
 
 参考文档：[https://cloud.google.com/compute/docs/instances/interacting-with-serial-console#standardssh](https://cloud.google.com/compute/docs/instances/interacting-with-serial-console#standardssh)
 
-实验机器：ssh-key-test
+实验机器：****
 
 
 
@@ -79,7 +79,7 @@ gcloud compute instances add-metadata instance-name \
         --metadata startup-script=#! /bin/bash
 adduser username
 echo 'username:password' | chpasswd
-usermod -aG google-sudoers password
+usermod -aG google-sudoers username
 ```
 
 
@@ -182,10 +182,6 @@ sudo service sshd status
 *   username：您用于连接实例的用户名。通常是本地机器上的用户名。
 *   options：您可以为此连接指定的其他选项。例如，您可以指定某个串行端口并指定任何[高级选项](https://cloud.google.com/compute/docs/instances/interacting-with-serial-console#advanced_options)。端口号可以是 1 到 4（包括 1 和 4）。如需详细了解端口号，请参阅[了解串行端口编号](https://cloud.google.com/compute/docs/instances/interacting-with-serial-console#understanding_serial_port_numbering)。如果忽略该选项，您将连接到串行端口 1
 
-    ```
+```
 ssh -i private-ssh-key-file -p 9600 myproject.us-central1-f.example-instance.jane@ssh-serialport.googleapis.com
 ```
-
-
-
-<!-- Docs to Markdown version 1.0β22 -->
