@@ -282,52 +282,16 @@ gsutil cp -r dist/preprocessing-1.0.tar.gz   gs://ai_platform-bucket/gcs_package
 
 ### Console 提交训练任务
 
+![image](https://github.com/JunHash/gcp-playgroud-public/blob/master/pics/submit-model.png)
 
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/AI-Platform0.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/AI-Platform0.png "image_tooltip")
-
-
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/AI-Platform1.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/AI-Platform1.png "image_tooltip")
-
-
+![image](https://github.com/JunHash/gcp-playgroud-public/blob/master/pics/submit-model-2.png)
 
 ### 创建模型
-
-
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/AI-Platform2.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/AI-Platform2.png "image_tooltip")
-
-
-
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/AI-Platform3.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/AI-Platform3.png "image_tooltip")
-
-
+![image](https://github.com/JunHash/gcp-playgroud-public/blob/master/pics/create-model.png)
+![image](https://github.com/JunHash/gcp-playgroud-public/blob/master/pics/model-v1.png)
 
 ### 预测模型
-
-
-
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/AI-Platform4.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/AI-Platform4.png "image_tooltip")
-
-
+![image](https://github.com/JunHash/gcp-playgroud-public/blob/master/pics/predict-model.png)
 
 ```
 {
