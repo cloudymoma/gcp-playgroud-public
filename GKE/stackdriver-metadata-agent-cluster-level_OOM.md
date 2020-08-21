@@ -12,7 +12,7 @@ data:
   NannyConfiguration: |-
     apiVersion: nannyconfig/v1alpha1
     kind: NannyConfiguration
-    **baseMemory: 50Mi**
+    baseMemory: 50Mi
 kind: ConfigMap
 ```
 
