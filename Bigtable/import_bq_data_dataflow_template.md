@@ -71,7 +71,7 @@ and the dedicated avro [schema](https://github.com/GoogleCloudPlatform/DataflowT
 }
 ```
 
-We have created a middle table in BigQuery, which you may need to transform your data in the same way so that fit the Bigtable schema hence can be smoothly imported.
+We have created a middle table in BigQuery, which you may need to transform your data in the same way so that fits the Bigtable schema hence can be smoothly imported.
 
 ```sql
 -- Common SQL, but replace the project, dataset & table according to your environment
