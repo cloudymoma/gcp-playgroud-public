@@ -1,0 +1,53 @@
+# If necessary, uncomment the line below to include explore_source.
+# include: "ga_demo.model.lkml"
+view: level_balancing {
+  derived_table: {
+    explore_source: events {
+      column: approximate_usage_in_minutes {}
+      column: player_level {}
+      column: game_name {}
+      column: user_id {}
+      filters: {
+        field: events.event_date
+        value: "60 days"
+      }
+    }
+  }
+  dimension: approximate_usage_in_minutes {
+    type: number
+  }
+  dimension: player_level {
+    type: number
+  }
+  dimension: user_id {}
+  dimension: game_name {}
+
+  dimension: prim_key {
+    primary_key: yes
+    type: string
+    hidden: yes
+    sql: CONCAT(${player_level},${user_id},${game_name}) ;;
+  }
+
+  measure: number_of_users {
+    type: count_distinct
+    sql: ${user_id} ;;
+  }
+
+  measure: users_spent_3_min_or_more {
+    description: "filtered user count: spent 3 min or more"
+    type: count_distinct
+    sql: ${user_id} ;;
+    filters: {
+      field: approximate_usage_in_minutes
+      value: ">3"
+    }
+  }
+
+  dimension: usage_tiered {
+    type: tier
+    tiers: [0,1,2,3,4,5,6,7,8,9,10]
+    sql: ${approximate_usage_in_minutes} ;;
+    style: integer
+  }
+}
