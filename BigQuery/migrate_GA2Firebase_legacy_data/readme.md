@@ -78,7 +78,7 @@
 
 ## Do the migration
 
-Update the script to include your Analytics property ID, BigQuery project ID, Firebase app ID, BigQuery dataset name, and the start and end dates of the data you want, then run `./migration.sh`
+Update the [script](https://github.com/cloudymoma/gcp-playgroud-public/blob/master/BigQuery/migrate_GA2Firebase_legacy_data/migration.sh) to include your Analytics property ID, BigQuery project ID, Firebase app ID, BigQuery dataset name, and the start and end dates of the data you want, then run `./migration.sh`
 
 ## Old schema
 
