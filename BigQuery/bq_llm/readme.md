@@ -28,7 +28,21 @@ bq --project_id=du-hast-mich query --nouse_cache --nouse_legacy_sql 'SELECT * fr
 
 ### SQL
 
+#### A Simple Example
+
+```sql
+SELECT * from ML.GENERATE_TEXT(MODEL bq_llm.llm_model, 
+(SELECT "Give a short description of a machine learning model" as prompt), 
+STRUCT(0.2 AS temperature, 
+  128 AS max_output_tokens, 
+  0.8 AS top_p, 
+  40 AS top_k, 
+  1 AS candidate_count))
 ```
+
+#### Data Enrichment
+
+```sql
 SELECT * FROM
 ML.GENERATE_TEXT (
 MODEL `bq_llm.llm_model`,
