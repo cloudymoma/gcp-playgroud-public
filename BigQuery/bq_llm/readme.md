@@ -41,3 +41,13 @@ STRUCT ( 0.2 AS temperature,
 ```
 
 suppose `city` is a column in the `t_city` table
+
+## GCP Permission issues
+
+Please consult [this](https://cloud.google.com/bigquery/docs/generate-text-tutorial#grant-permissions) official doc for permissions setup.
+
+Basically, simply grant your *Bigquery Serverice Account* access to your **VertexAI** should do the trick.
+
+1. You should be able to find out he **Service Account** from the Bigquery error information
+2. Navigate to [IAM & Admin](https://pantheon.corp.google.com/iam-admin/iam)
+3. Add the service account and grant *Vertex AI User* role
