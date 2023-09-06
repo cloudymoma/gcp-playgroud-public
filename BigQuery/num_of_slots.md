@@ -26,7 +26,7 @@ SELECT
   job.user_email,
   job.job_id,
   job.query,
-  job.timeline[0].elapsed_ms,
+  TIMESTAMP_DIFF(job.end_time,job.start_time, MILLISECOND) AS elapsed_ms,
   SAFE_DIVIDE(job.total_slot_ms, TIMESTAMP_DIFF(job.end_time,job.start_time, MILLISECOND)) AS num_slots
 FROM
   `region-us`.INFORMATION_SCHEMA.JOBS_BY_PROJECT job
@@ -43,7 +43,7 @@ SELECT
   job.user_email,
   job.job_id,
   job.query,
-  job.timeline[0].elapsed_ms,
+  TIMESTAMP_DIFF(job.end_time,job.start_time, MILLISECOND) AS elapsed_ms,
   SAFE_DIVIDE(job.total_slot_ms, TIMESTAMP_DIFF(job.end_time,job.start_time, MILLISECOND)) AS num_slots
 FROM
   `region-us`.INFORMATION_SCHEMA.JOBS_BY_PROJECT job
