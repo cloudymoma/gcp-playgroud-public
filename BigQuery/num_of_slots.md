@@ -16,7 +16,7 @@ FROM
   `region-us`.INFORMATION_SCHEMA.JOBS_BY_ORGANIZATION jbo
 ```
 
-another example, Singapre
+another example
 
 ```sql
 SELECT
@@ -29,7 +29,7 @@ SELECT
   job.timeline[0].elapsed_ms,
   SAFE_DIVIDE(job.total_slot_ms, TIMESTAMP_DIFF(job.end_time,job.start_time, MILLISECOND)) AS num_slots
 FROM
-  `region-asia-southeast1`.INFORMATION_SCHEMA.JOBS_BY_PROJECT job
+  `region-us`.INFORMATION_SCHEMA.JOBS_BY_PROJECT job
 -- WHERE
 --  job.referenced_tables[0].table_id!="INFORMATION_SCHEMA.JOBS_BY_ORGANIZATION"
 ```
