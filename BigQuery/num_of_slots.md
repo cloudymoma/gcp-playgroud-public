@@ -30,8 +30,6 @@ SELECT
   SAFE_DIVIDE(job.total_slot_ms, TIMESTAMP_DIFF(job.end_time,job.start_time, MILLISECOND)) AS num_slots
 FROM
   `region-us`.INFORMATION_SCHEMA.JOBS_BY_PROJECT job
--- WHERE
---  job.referenced_tables[0].table_id!="INFORMATION_SCHEMA.JOBS_BY_ORGANIZATION"
 ```
 
 another example, filter the query of INFORMATION_SCHEMA and sort by query time desc
