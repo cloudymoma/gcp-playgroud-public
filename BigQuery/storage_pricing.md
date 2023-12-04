@@ -45,3 +45,7 @@ SELECT
 FROM
   storage_sizes
 ```
+
+[TABLE_STORAGE view](https://cloud.google.com/bigquery/docs/information-schema-table-storage)
+
+API [Method: tables.get](https://cloud.google.com/bigquery/docs/reference/rest/v2/tables/get)
