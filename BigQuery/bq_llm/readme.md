@@ -1,4 +1,4 @@
-# [LLM in BQML](https://cloud.google.com/bigquery/docs/generate-text)
+# [LLM (Gemini Pro) in BQML](https://cloud.google.com/bigquery/docs/generate-text)
 
 ## Create an external service connection
 
@@ -15,8 +15,24 @@ bq show --location=US --connection bq_llm_con
 ## Create the remote LLM Model in BigQuery
 
 ```shell
-bq --project_id=du-hast-mich query --nouse_cache --nouse_legacy_sql  'CREATE OR REPLACE MODEL `du-hast-mich.bq_llm.llm_model` REMOTE WITH CONNECTION `490779752600.us.bq_llm_con` OPTIONS (remote_service_type = "CLOUD_AI_LARGE_LANGUAGE_MODEL_V1")
+bq --project_id=du-hast-mich query --nouse_cache --nouse_legacy_sql  'CREATE OR REPLACE MODEL `du-hast-mich.bq_llm.llm_model` REMOTE WITH CONNECTION `490779752600.us.bq_llm_con` OPTIONS (ENDPOINT = "gemini-pro")
 ```
+
+### Do it in BigQuery console (SQL)
+
+```sql
+CREATE OR REPLACE MODEL
+  `du-hast-mich.bq_llm.llm_model` REMOTE
+WITH CONNECTION `490779752600.us.bq_llm_con` OPTIONS (ENDPOINT = "gemini-pro")
+```
+
+### Parameters Explained
+
+`490779752600` is the `Project ID`, you will need to find out your own one.
+
+#### [`ENDPOINT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-remote-model#gemini-api-text-models)
+
+`gemini-pro` is a `vertex_ai_llm_endpoint` model, also it is an alias fro Vertex AI `gemimi-1.0-pro` versioned endpoint. The `@version` syntax isn't supported by Gemini models.
 
 ## Inference
 
