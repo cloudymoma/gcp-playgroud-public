@@ -15,7 +15,8 @@ bq show --location=US --connection bq_llm_con
 ## Create the remote LLM Model in BigQuery 创建远程LLM模型
 
 ```shell
-bq --project_id=du-hast-mich query --nouse_cache --nouse_legacy_sql  'CREATE OR REPLACE MODEL `du-hast-mich.bq_llm.llm_model` REMOTE WITH CONNECTION `490779752600.us.bq_llm_con` OPTIONS (ENDPOINT = "gemini-pro")
+bq --project_id=du-hast-mich query --nouse_cache --nouse_legacy_sql \
+  'CREATE OR REPLACE MODEL `du-hast-mich.bq_llm.llm_model` REMOTE WITH CONNECTION `490779752600.us.bq_llm_con` OPTIONS (ENDPOINT = "gemini-pro")'
 ```
 
 ### Do it in BigQuery console (SQL)
