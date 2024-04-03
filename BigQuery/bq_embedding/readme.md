@@ -151,6 +151,45 @@ FROM
    options => '{use_brute_force : true}');
 ```
 
+## Evaluate recall 评估召回
+
+```sql
+with 
+approx_results as (
+SELECT query.uri as search_uri, 
+  base.uri as data_uri, 
+  distance
+FROM
+ VECTOR_SEARCH(
+   TABLE `du-hast-mich.bq_vec.embeddings_table`,'ml_generate_embedding_result',
+   TABLE `du-hast-mich.bq_vec.embeddings_table2`,
+   top_k => 5,
+   distance_type => 'COSINE',
+   options => '{"fraction_lists_to_search": 0.005}')
+), 
+exact_results as (
+SELECT query.uri as search_uri, 
+  base.uri as data_uri, 
+  distance
+FROM
+ VECTOR_SEARCH(
+   TABLE `du-hast-mich.bq_vec.embeddings_table`,'ml_generate_embedding_result',
+   TABLE `du-hast-mich.bq_vec.embeddings_table2`,
+   top_k => 5,
+   distance_type => 'COSINE',
+   options => '{use_brute_force : true}')
+)
+
+SELECT
+  a.search_uri,
+  SUM(CASE WHEN a.data_uri = e.data_uri THEN 1 ELSE 0 END) / 5 AS recall
+FROM exact_results e LEFT JOIN approx_results a
+  ON e.search_uri = a.search_uri
+GROUP BY a.search_uri
+```
+
+If the recall is lower than you would like, you can increase the `fraction_lists_to_search` value, with the downside of potentially higher latency and resource usage. To tune your vector search, you can try multiple runs of `VECTOR_SEARCH` with different argument values, save the results to tables, and then compare the results.
+
 ## GCP Permission issues
 
 Please consult [this](https://cloud.google.com/bigquery/docs/generate-text-tutorial#grant-permissions) official doc for permissions setup.
