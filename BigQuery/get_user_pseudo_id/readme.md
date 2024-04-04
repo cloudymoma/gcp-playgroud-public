@@ -1,4 +1,6 @@
-# Get `user_pseudo_id` from client SDK
+# Get `user_pseudo_id` from Firebase client SDK
+
+For `Firebase installation ID` (FID) or migrate from `Instance ID` to `FID`, please consult **[here](https://firebase.google.com/docs/projects/manage-installations)**.
 
 ## Mobile clients
 
