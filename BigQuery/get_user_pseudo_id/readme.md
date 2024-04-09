@@ -2,7 +2,68 @@
 
 For `Firebase installation ID` (FID) or migrate from `Instance ID` to `FID`, please consult **[here](https://firebase.google.com/docs/projects/manage-installations)**.
 
-## Mobile clients
+## Retrive client ID (a.k.a. user_pseudo_id or instance id)
+
+{{% tabs %}}
+{{% tab "Swift" %}}
+do {
+  let id = try await Installations.installations().installationID()
+  print("Installation ID: \(id)")
+} catch {
+  print("Error fetching id: \(error)")
+}
+{{% /tab %}}
+
+{{% tab "Objective-C" %}}
+[[FIRInstallations installations] installationIDWithCompletion:^(NSString *identifier, NSError *error) {
+  if (error != nil) {
+    NSLog(@"Error fetching Installation ID %@", error);
+    return;
+  }
+  NSLog(@"Installation ID: %@", identifier);
+}];
+{{% /tab %}}
+
+{{% tab "Java Android" %}}
+FirebaseInstallations.getInstance().getId()
+        .addOnCompleteListener(new OnCompleteListener<String>() {
+    @Override
+    public void onComplete(@NonNull Task<String> task) {
+        if (task.isSuccessful()) {
+            Log.d("Installations", "Installation ID: " + task.getResult());
+        } else {
+            Log.e("Installations", "Unable to get Installation ID");
+        }
+    }
+});
+{{% /tab %}}
+
+{{% tab "Kotlin+KTX Android" %}}
+FirebaseInstallations.getInstance().id.addOnCompleteListener { task ->
+    if (task.isSuccessful) {
+        Log.d("Installations", "Installation ID: " + task.result)
+    } else {
+        Log.e("Installations", "Unable to get Installation ID")
+    }
+}
+{{% /tab %}}
+
+{{% tab "JavaScript" %}}
+const installationId = await firebase.installations().getId();
+console.log(installationId);
+{{% /tab %}}
+
+{{% tab "Dart Flutter" %}}
+String id = await FirebaseInstallations.instance.getId();
+{{% /tab %}}
+
+{{% /tabs %}}
+
+---
+
+## Deprecated methods
+
+### Mobile clients
 
 Firebase Docs
 
@@ -22,7 +83,7 @@ FirebaseAnalytics.getInstance(this).getAppInstanceId().addOnCompleteListener(new
 });
 ```
 
-## Web
+### Web
 
 JavaScript
 
