@@ -2,6 +2,8 @@
 
 使用BigQuery对非结构化数据(例如：图片，长文本)进行向量搜索。
 
+With external TensorFlow models, please refer to [here](https://cloud.google.com/bigquery/docs/generate-embedding-with-tensorflow-models)
+
 ## Create an external service connection
 
 ```shell
