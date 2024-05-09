@@ -61,6 +61,12 @@ CREATE OR REPLACE TABLE `du-hast-mich.bq_llm.img_results` AS
 )
 ```
 
+Check the results 
+
+```sql
+SELECT * FROM `du-hast-mich.bq_llm.img_results`
+```
+
 ## GCP Permission issues
 
 Please consult [this](https://cloud.google.com/bigquery/docs/generate-text-tutorial#grant-permissions) official doc for permissions setup.
