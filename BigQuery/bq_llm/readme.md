@@ -77,6 +77,26 @@ STRUCT ( 0.2 AS temperature,
 
 suppose `city` is a column in the `t_city` table
 
+### Examples 
+
+#### Ask LLM to extract keywords from BBC news stored in BigQuery's public dataset
+
+利用大语言模型从BBC News中提取关键字
+
+```sql
+SELECT body, ml_generate_text_llm_result 
+FROM
+ML.GENERATE_TEXT(
+  MODEL bq_llm.llm_model, 
+  (
+    SELECT CONCAT('Extract the key words form the text below: ', body) as prompt,
+      *
+    FROM `bigquery-public-data.bbc_news.fulltext` limit 5
+  ),
+  STRUCT(TRUE AS flatten_json_output)
+);
+```
+
 ## GCP Permission issues
 
 Please consult [this](https://cloud.google.com/bigquery/docs/generate-text-tutorial#grant-permissions) official doc for permissions setup.
