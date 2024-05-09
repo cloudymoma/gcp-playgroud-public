@@ -40,6 +40,8 @@ WITH CONNECTION `490779752600.us.bq_vec_con` OPTIONS (ENDPOINT = "multimodalembe
 
 ## Create the BigQuery Object table for images 建立对象表
 
+**[Optional]** In case you do not have any image data. I use the ones from [kaggle](https://www.kaggle.com/datasets/iamsouravbanerjee/animal-image-dataset-90-different-animals). Simply download the package then extract the package and put to GCS straight away. e.g. I put the entire `animals` folder under `gs://vecsearch` bucket in the following example.
+
 ```shell
 bq mk --connection --display_name='bq_img_con' --connection_type=CLOUD_RESOURCE --location=US bq_img_con
 ```
