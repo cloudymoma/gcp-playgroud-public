@@ -64,7 +64,8 @@ CREATE OR REPLACE TABLE `du-hast-mich.bq_llm.img_results` AS
 Check the results 
 
 ```sql
-SELECT * FROM `du-hast-mich.bq_llm.img_results`
+SELECT * FROM `du-hast-mich.bq_llm.img_results` AS r
+WHERE r.ml_generate_text_llm_result IS NOT NULL
 ```
 
 ## GCP Permission issues
