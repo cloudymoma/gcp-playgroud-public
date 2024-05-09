@@ -1,4 +1,4 @@
-# [LLM (Gemini Pro Vision) in BQML](https://cloud.google.com/bigquery/docs/generate-text)
+# [LLM (Gemini Pro Vision) in BQML](https://cloud.google.com/bigquery/docs/image-analysis)
 
 ## Create an external service connection 创建外部服务连接
 
