@@ -124,7 +124,7 @@ __flink_job_server() {
         --secondary-worker-boot-disk-size=100GB \
         --secondary-worker-boot-disk-type=pd-balanced \
         --num-secondary-worker-local-ssds=0 \
-        --properties="flink:jobmanager.archive.fs.dir=${FLINK_HISTORY_DIR},flink:taskmanager.numberOfTaskSlots=${task_slots}" \
+        --properties="flink:historyserver.archive.fs.dir=${FLINK_HISTORY_DIR},flink:jobmanager.archive.fs.dir=${FLINK_HISTORY_DIR},flink:taskmanager.numberOfTaskSlots=${task_slots}" \
         --project=$PROJECT_NAME
     echo "Flink Job Cluster UI may be accessible via Component Gateway once ready."
 }
