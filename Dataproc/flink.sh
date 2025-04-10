@@ -10,8 +10,7 @@ export ZONE=$REGION-b
 export GCS_BUCKET=dingoproc # Make sure this bucket exists
 export STAGING_BUCKET=$GCS_BUCKET
 export TEMP_BUCKET=$GCS_BUCKET
-export FLINK_HISTORY_DIR=gs://$GCS_BUCKET/flink-history # Directory for Flink history
-# export FLINK_HISTORY_DIR=gs://$GCS_BUCKET/*/flink-job-history/completed-jobs
+export FLINK_GCS_ROOT=gs://$GCS_BUCKET/flink # Directory for Flink
 
 # Cluster Names
 export FLINK_HIST_CLUSTER_NAME=dingoflinkhist
@@ -23,7 +22,7 @@ export MAX_IDLE=1h # Auto-delete after 1 hour of inactivity
 export OS_IMG=2.2-debian12 # Flink image version
 
 # Flink Job Configuration (MODIFY THESE)
-export FLINK_JOB_JAR="path/to/your/flink-job.jar" # REQUIRED: Path to your Flink job JAR (can be local or GCS)
+export FLINK_JOB_JAR="gs://dingoproc/flink_jobs/pubsub-flink-1.0-SNAPSHOT.jar" # REQUIRED: Path to your Flink job JAR (can be local or GCS)
 export FLINK_MAIN_CLASS="" # OPTIONAL: Main class if not specified in JAR manifest (e.g., com.example.MyFlinkJob)
 
 # --- Internal ---
@@ -56,7 +55,16 @@ __flink_hist_server() {
         --master-boot-disk-type=hyperdisk-balanced \
         --image-version=${OS_IMG} \
         --bucket=$STAGING_BUCKET \
-        --properties="flink:historyserver.archive.fs.dir=${FLINK_HISTORY_DIR}" \
+        --properties=yarn:yarn.nodemanager.remote-app-log-dir=$FLINK_GCS_ROOT/yarn-logs \
+        --properties=spark:spark.eventLog.enabled=true \
+        --properties=spark:spark.eventLog.dir=$FLINK_GCS_ROOT/events/spark-job-history \
+        --properties=spark:spark.eventLog.rolling.enabled=true \
+        --properties=spark:spark.eventLog.rolling.maxFileSize=128m \
+        --properties=spark:spark.history.fs.logDirectory=$FLINK_GCS_ROOT/events/spark-job-history \
+        --properties=flink:historyserver.archive.fs.dir=$FLINK_GCS_ROOT/history \
+        --properties=flink:historyserver.archive.fs.refresh-interval=3000 \
+        --properties=flink:historyserver.web.refresh-interval=3000 \
+        --properties=flink:jobmanager.archive.fs.dir=$FLINK_GCS_ROOT/jobs \
         --project=$PROJECT_NAME
     echo "Flink History Server UI may be accessible via Component Gateway once ready."
 }
@@ -112,19 +120,37 @@ __flink_job_server() {
         --num-masters=1 \
         --master-boot-disk-size=128GB \
         --master-boot-disk-type=pd-balanced \
-        --num-master-local-ssds=0 `# Flink typically doesn't require master SSDs like Spark might for shuffle` \
+        --num-master-local-ssds=1 `# Flink typically doesn't require master SSDs like Spark might for shuffle` \
+        --master-local-ssd-interface=NVME \
         --autoscaling-policy=balanced-scaling-policy `# Ensure this policy exists via 'policy' command` \
         --worker-machine-type=$worker_type \
         --num-workers=2 `# Initial workers, autoscaler will adjust` \
         --worker-boot-disk-size=100GB `# Adjust based on Flink state/checkpoint needs` \
         --worker-boot-disk-type=pd-balanced `# pd-ssd might be better if checkpointing is heavy` \
-        --num-worker-local-ssds=0 `# Flink checkpoints usually go to GCS/persistent storage` \
+        --num-worker-local-ssds=1 `# Flink checkpoints usually go to GCS/persistent storage` \
+        --worker-local-ssd-interface=NVME \
         --secondary-worker-type=spot \
         --num-secondary-workers=2 `# Initial secondary workers` \
         --secondary-worker-boot-disk-size=100GB \
         --secondary-worker-boot-disk-type=pd-balanced \
-        --num-secondary-worker-local-ssds=0 \
-        --properties="flink:historyserver.archive.fs.dir=${FLINK_HISTORY_DIR},flink:jobmanager.archive.fs.dir=${FLINK_HISTORY_DIR},flink:taskmanager.numberOfTaskSlots=${task_slots}" \
+        --num-secondary-worker-local-ssds=1 \
+        --secondary-worker-local-ssd-interface=NVME \
+        --properties=yarn:yarn.nodemanager.remote-app-log-dir=$FLINK_GCS_ROOT/yarn-logs \
+        --properties=spark:spark.eventLog.enabled=true \
+        --properties=spark:spark.eventLog.dir=$FLINK_GCS_ROOT/events/spark-job-history \
+        --properties=spark:spark.eventLog.rolling.enabled=true \
+        --properties=spark:spark.eventLog.rolling.maxFileSize=128m \
+        --properties=spark:spark.history.fs.logDirectory=$FLINK_GCS_ROOT/events/spark-job-history \
+        --properties=spark:spark.history.fs.gs.outputstream.type=FLUSHABLE_COMPOSITE \
+        --properties=spark:spark.history.fs.gs.outputstream.sync.min.interval.ms=1000ms \
+        --properties=spark:spark.dataproc.enhanced.optimizer.enabled=true \
+        --properties=spark:spark.dataproc.enhanced.execution.enabled=true \
+        --properties=dataproc:dataproc.cluster.caching.enabled=true \
+        --properties=flink:historyserver.archive.fs.dir=$FLINK_GCS_ROOT/history \
+        --properties=flink:historyserver.archive.fs.refresh-interval=3000 \
+        --properties=flink:historyserver.web.refresh-interval=3000 \
+        --properties=flink:jobmanager.archive.fs.dir=$FLINK_GCS_ROOT/jobs \
+        --properties=flink:taskmanager.numberOfTaskSlots=$task_slots \
         --project=$PROJECT_NAME
     echo "Flink Job Cluster UI may be accessible via Component Gateway once ready."
 }
