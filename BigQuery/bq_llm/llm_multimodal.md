@@ -1,4 +1,4 @@
-# [LLM (Gemini Pro Vision) in BQML](https://cloud.google.com/bigquery/docs/image-analysis)
+# [LLM (Gemini Multimodal Model) in BQML](https://cloud.google.com/bigquery/docs/image-analysis)
 
 ## Create an external service connection 创建外部服务连接
 
@@ -16,7 +16,7 @@ bq show --location=US --connection bq_llm_multi_con
 
 ```shell
 bq --project_id=du-hast-mich query --nouse_cache --nouse_legacy_sql \
-  'CREATE OR REPLACE MODEL `du-hast-mich.bq_llm.llm_multi_model` REMOTE WITH CONNECTION `490779752600.us.bq_llm_multi_con` OPTIONS (ENDPOINT = "gemini-pro-vision")'
+  'CREATE OR REPLACE MODEL `du-hast-mich.bq_llm.llm_multi_model` REMOTE WITH CONNECTION `490779752600.us.bq_llm_multi_con` OPTIONS (ENDPOINT = "gemini-2.0-flash")'
 ```
 
 ### Do it in BigQuery console (SQL)
@@ -26,18 +26,19 @@ bq --project_id=du-hast-mich query --nouse_cache --nouse_legacy_sql \
 ```sql
 CREATE OR REPLACE MODEL
   `du-hast-mich.bq_llm.llm_multi_model` REMOTE
-WITH CONNECTION `490779752600.us.bq_llm_multi_con` OPTIONS (ENDPOINT = "gemini-pro-vision")
+WITH CONNECTION `490779752600.us.bq_llm_multi_con` OPTIONS (ENDPOINT = "gemini-2.0-flash")
 ```
 
 ### Parameters Explained
 
 `490779752600` is the `Project ID`, you will need to find out your own one. `490779752600`是项目ID，您需要找到自己的项目ID。
 
-#### [`ENDPOINT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-remote-model#gemini-api-multimodal-models)
+####
+[`ENDPOINT`](https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-remote-model#endpoint)
 
-`gemini-pro-vision` is a `vertex_ai_llm_endpoint` model, also it is an alias fro Vertex AI `gemimi-1.0-pro-vision` versioned endpoint. The `@version` syntax isn't supported by Gemini models.
+`gemini-2.0-flash` is a `vertex_ai_llm_endpoint` model, also it is an alias fro Vertex AI `gemimi-1.0-pro-vision` versioned endpoint. The `@version` syntax isn't supported by Gemini models.
 
-`ENDPOINT`是模型的端点，`gemini-pro-vision`是一个特定的端点，它是一个别名，代表 Vertex AI 的特定版本。
+`ENDPOINT`是模型的端点，`gemini-2.0-flash`是一个特定的端点，它是一个别名，代表 Vertex AI 的特定版本。
 
 ## Inference
 
