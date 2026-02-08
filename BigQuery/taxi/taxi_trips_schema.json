@@ -1,0 +1,163 @@
+[
+  {
+    "Name": "unique_key",
+    "Description": "Unique identifier for the trip.",
+    "Repeated": false,
+    "Required": true,
+    "Type": "STRING"
+  },
+  {
+    "Name": "taxi_id",
+    "Description": "A unique identifier for the taxi.",
+    "Repeated": false,
+    "Required": true,
+    "Type": "STRING"
+  },
+  {
+    "Name": "trip_start_timestamp",
+    "Description": "When the trip started, rounded to the nearest 15 minutes.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "TIMESTAMP"
+  },
+  {
+    "Name": "trip_end_timestamp",
+    "Description": "When the trip ended, rounded to the nearest 15 minutes.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "TIMESTAMP"
+  },
+  {
+    "Name": "trip_seconds",
+    "Description": "Time of the trip in seconds.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "INTEGER"
+  },
+  {
+    "Name": "trip_miles",
+    "Description": "Distance of the trip in miles.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "FLOAT"
+  },
+  {
+    "Name": "pickup_census_tract",
+    "Description": "The Census Tract where the trip began. For privacy, this Census Tract is not shown for some trips.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "INTEGER"
+  },
+  {
+    "Name": "dropoff_census_tract",
+    "Description": "The Census Tract where the trip ended. For privacy, this Census Tract is not shown for some trips.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "INTEGER"
+  },
+  {
+    "Name": "pickup_community_area",
+    "Description": "The Community Area where the trip began.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "INTEGER"
+  },
+  {
+    "Name": "dropoff_community_area",
+    "Description": "The Community Area where the trip ended.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "INTEGER"
+  },
+  {
+    "Name": "fare",
+    "Description": "The fare for the trip.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "FLOAT"
+  },
+  {
+    "Name": "tips",
+    "Description": "The tip for the trip. Cash tips generally will not be recorded.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "FLOAT"
+  },
+  {
+    "Name": "tolls",
+    "Description": "The tolls for the trip.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "FLOAT"
+  },
+  {
+    "Name": "extras",
+    "Description": "Extra charges for the trip.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "FLOAT"
+  },
+  {
+    "Name": "trip_total",
+    "Description": "Total cost of the trip, the total of the fare, tips, tolls, and extras.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "FLOAT"
+  },
+  {
+    "Name": "payment_type",
+    "Description": "Type of payment for the trip.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "STRING"
+  },
+  {
+    "Name": "company",
+    "Description": "The taxi company.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "STRING"
+  },
+  {
+    "Name": "pickup_latitude",
+    "Description": "The latitude of the center of the pickup census tract or the community area if the census tract has been hidden for privacy.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "FLOAT"
+  },
+  {
+    "Name": "pickup_longitude",
+    "Description": "The longitude of the center of the pickup census tract or the community area if the census tract has been hidden for privacy.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "FLOAT"
+  },
+  {
+    "Name": "pickup_location",
+    "Description": "The location of the center of the pickup census tract or the community area if the census tract has been hidden for privacy.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "STRING"
+  },
+  {
+    "Name": "dropoff_latitude",
+    "Description": "The latitude of the center of the dropoff census tract or the community area if the census tract has been hidden for privacy.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "FLOAT"
+  },
+  {
+    "Name": "dropoff_longitude",
+    "Description": "The longitude of the center of the dropoff census tract or the community area if the census tract has been hidden for privacy.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "FLOAT"
+  },
+  {
+    "Name": "dropoff_location",
+    "Description": "The location of the center of the dropoff census tract or the community area if the census tract has been hidden for privacy.",
+    "Repeated": false,
+    "Required": false,
+    "Type": "STRING"
+  }
+]
